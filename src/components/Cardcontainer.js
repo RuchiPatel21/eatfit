@@ -1,47 +1,45 @@
 import Restaurantcard from "./Restaurantcard";
+import { restaurantList } from "../const/config";
+import { imgUrl } from "../const/config";
+import { useState } from "react";
 
 const Cardcontainer = () => {
-    const restaurantData=[
-        {
-            imgUrl:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e0839ff574213e6f35b3899ebf1fc597",
-            title:"Chinese Wok",
-            starRating:"4.5",
-            deliveryTime:"40-45",
-            cuisine:"Chinese, Asian, Tibetan, Desserts",
-            location:"Santacruz East"
-            
-        },
-        {
-            imgUrl:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/eibssqccoqhjgorsglso",
-            title:"Natural Ice Cream",
-            starRating:"4.5",
-            deliveryTime:"45-50",
-            cuisine:"Ice Cream, Desserts",
-            location:"Sakinaka"
-            
-        },
-        {
-            imgUrl:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/dfbcecfc-b380-4648-930a-b9b56b21e781_342079.JPG",
-            title:"Chaayos Chai+Snacks=Relax",
-            starRating:"4.5",
-            deliveryTime:"45-50",
-            cuisine:"Bakery, Beverages, Chaat, Desserts, Home Food, Italian, Maharashtrian, Snacks, Street Food, Sweets",
-            location:"Scruz Bandra East"
-            
-        },
-        {
-            imgUrl:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/bb1d7cd7173f315487ed009ba7ca8b9d",
-            title:"PizzaExpress",
-            starRating:"4.2",
-            deliveryTime:"35-40",
-            cuisine:"Pizzas, Italian",
-            location:"Bandra Kurla Complex"
-            
-        }
-    ];
+    const [restaurantData, setRestaurantData] = useState( restaurantList[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    console.log("restaurantList" , restaurantList[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+// setRestaurantData( restaurantList[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+// const filterRestaurants =()=>{
+//    restaurant = restaurant.filter((restaurant)=>{
+//         return(
+//             restaurant?.info?.avgRating>=4.5
+//         )
+//     })
+//     console.log("restaurants",restaurant)
+// }
+
     return(
       <div className="container d-flex flex-wrap gap-4">
-        {restaurantData.map((restaurant)=>{
+        {/* <button onClick={filterRestaurants}>Top Rated Restaurants</button> */}
+        {
+            restaurantData.map((restaurant)=>{
+                return(
+                    <Restaurantcard
+                    key={restaurant?.info?.id}
+            // imgUrl={imgUrl + restaurant?.info?.cloudinaryImageId}
+            // title={restaurant?.info?.name}
+            // starRating={restaurant?.info?.avgRating}
+            // deliveryTime={restaurant?.info?.sla?.deliveryTime}
+            // cuisine={restaurant?.info?.cuisines.join(", ")}
+            // location={restaurant?.info?.areaName}
+            {...restaurant?.info}
+            />
+                )
+            })
+            
+        }
+        
+
+        {/* {restaurantData.map((restaurant)=>{
             return (
                 <Restaurantcard 
                 {...restaurant}
@@ -53,7 +51,7 @@ const Cardcontainer = () => {
                 // location={restaurant?.location}
       />
             )
-        })}
+        })} */}
       
       
       </div>
