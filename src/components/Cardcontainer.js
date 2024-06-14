@@ -18,7 +18,7 @@ const Cardcontainer = () => {
 // }
 
     return(
-      <div className="container d-flex flex-wrap gap-4">
+      <div className="container d-flex flex-wrap gap-4 ">
         {/* <button onClick={filterRestaurants}>Top Rated Restaurants</button> */}
         {
             restaurantData.map((restaurant)=>{

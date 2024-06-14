@@ -1,6 +1,13 @@
+
 .custom-card{
   width:100%;
   max-width: 250px;
+  margin: auto;
+  transition: transform .3s;
+  
+}
+.custom-card:hover{
+  transform: scale(0.8);
 }
 
 .custom-card img{
@@ -8,4 +15,30 @@
   height: 200px;
   object-fit: cover;
   border-radius: 20px;
+  cursor: pointer;
+}
+
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%; 
+  display: block;
+}
+
+.custom-card .cuisine{
+  overflow: hidden;
+  
+    -webkit-font-smoothing: antialiased;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+   
+    display: -webkit-box;
+    font-family: Basis_Grotesque_Pro;
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: -.3px;
+    line-height: 19px;
+    overflow-wrap: break-word;
+
 }

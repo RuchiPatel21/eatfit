@@ -9,12 +9,12 @@ const Restaurantcard = ({cloudinaryImageId, name, avgRating, sla, cuisines, area
         />
       </div>
       <div className="px-2">
-      <h5>{name}</h5>
+      <h5 className="name">{name}</h5>
       <div className="d-flex justify-content-between">
         <div>⭐{avgRating}</div>
         <div>{sla?.deliveryTime}min</div>
       </div>
-      <div>{cuisines.join(", ")}</div>
+      <div className="cuisine">{cuisines.join(", ")}</div>
       <div>{areaName}</div>
       </div>
       </div>
